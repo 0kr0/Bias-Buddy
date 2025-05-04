@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Место для будущего бекенда
+  # backend:
+  #   build: ./backend
+  #   ports:
+  #     - "5000:5000"
+
+  # Место для будущего фронтенда  
+  # frontend:
+  #   build: ./frontend
+  #   ports:
+  #     - "80:3000"
+  
+  # Пример базы данных (раскомментируйте когда нужно)
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_PASSWORD: example
+
+  # Заглушка чтобы compose не ругался
+  placeholder:
+    image: alpine
+    command: tail -f /dev/null
