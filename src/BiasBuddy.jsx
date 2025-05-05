@@ -12,7 +12,7 @@ const BiasBuddy = () => {
     setResult(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/analyze', {
+      const response = await fetch('http://185.84.162.97/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text }),

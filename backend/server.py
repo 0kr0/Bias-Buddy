@@ -6,7 +6,7 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-API_URL = "https://api.aimlapi.com/v1/chat/completions" 
+API_URL = "https://api.aimlapi.com/v1/chat/completions"
 API_KEY = "3327ce8f43cf427fa822e4055b6d6b4c" # Vladimir first token: "d71241ee33e546929a6e00963bbad7c1"
 
 SYSTEM_PROMPT = """
@@ -74,6 +74,10 @@ def analyze_text():
     except Exception as e:
         print("Error:", e)
         return jsonify({"error": "Bias detection failed. Please try again later."}), 500
+
+@app.route('/test')
+def test():
+    return "Backend is working!", 200
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

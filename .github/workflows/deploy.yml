@@ -1,27 +1,24 @@
-name: Deploy to Production
-
-on:
-  push:
-    branches: [main]
+name: Deploy
+on: [push]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - name: Install SSH Key
+      - name: Install SSH key
         uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
 
       - name: Deploy
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.10
         with:
-          host: 185.84.162.97
-          username: root
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
           script: |
             cd /opt/bias-buddy
-            git pull origin main
+            git pull
             docker-compose down
             docker-compose up -d --build
