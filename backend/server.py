@@ -7,8 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 API_URL = "https://api.aimlapi.com/v1/chat/completions"
-API_KEY = "3327ce8f43cf427fa822e4055b6d6b4c" # Vladimir first token: "d71241ee33e546929a6e00963bbad7c1"
-
+API_KEY = "2d9551e03e644691a3f8f83b258247a0" # Vladimir first token: "d71241ee33e546929a6e00963bbad7c1"
+#3327ce8f43cf427fa822e4055b6d6b4c
 SYSTEM_PROMPT = """
 You are a bias detection assistant. Your job is to evaluate a user's input text for unconscious bias. Follow these instructions:
 
